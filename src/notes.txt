@@ -1,0 +1,44 @@
+const NUM_COLS = 5
+    function make2dArray(rows) {
+        let ret = []
+        for( let i = 0; i < rows; i++ ) {
+            let temp = []
+            for( let j = 0; j < NUM_COLS; j++ ) {
+                temp.push( 0 )
+            }
+            ret.push( temp )
+        }
+        return ret
+    }
+     
+    function print2dArray( arr ) {
+        for( let i = arr.length-1; i >= 0; i-- ) {
+            console.log( arr[i] )
+        }
+    }
+    
+    function stackBlock( arr, col ) {
+        let maxHeightIndex = arr.length;
+        let currentHighestBlock = -1;
+        for( let i = 0; i < arr.length; i++ ) {
+            if( arr[i][col] == 0  ) {
+                currentHighestBlock = i;
+                break;
+            }
+        }
+        if( ( currentHighestBlock == maxHeightIndex ) || ( currentHighestBlock == -1 ) ) {
+            return false
+        }
+        arr[currentHighestBlock][col] = 1
+    }
+
+
+Implement blank board
+implement pushing a task onto taskList when entering info in createTask Modal
+Implement updating a task in taskList when entering info in taskView Modal
+if( i != ( ( ( ( parseInt( taskList[i].rowNum ) + 1 ) * NUM_COLS ) ) + taskList.colNum ) )  {
+            grid.push( <BlankBlock rowNum={taskList[i].rowNum} colNum={taskList[i].colNum} /> );
+        }
+        else {
+            grid.push( <Taskblock key={taskList[i].id} taskName={taskList[i].name} taskDescription={taskList[i].description} openModal={setOpenTaskViewModal} rowNum={taskList[i].rowNum} colNum={taskList[i].colNum} /> )
+        }

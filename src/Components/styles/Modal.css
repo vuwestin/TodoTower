@@ -1,0 +1,23 @@
+.modalBackground {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	overflow: auto;
+	background: #6bc49f;
+	
+	/* These three make the content centered. IDK how though */
+	justify-content: center;
+	align-items: center;
+	display: flex;
+  }
+
+.modalContainer {
+	width: 500px;
+	height: 500px;
+	border-radius: 12px;
+	background-color: #0b472e4b;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	padding: 25px;
+}
