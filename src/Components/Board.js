@@ -81,16 +81,7 @@ function Board(props) {
         }
     }
 
-    // function shiftTasks( aRow, aCol ) { //col and row of deleted task is zero indexed!
-    //     let newTasks = [...tasks];
-        
-    //     // setTasks( newTasks );
-    // }
-
     function addTask( task ) {
-        //maybe don't even need this?
-        // need to add rowNum property to task
-        //
         let rowNum = NUM_ROWS-1;
         let i;
         for( i = task.colNum - 1 + ( NUM_COLS * ( NUM_ROWS - 1 ) ); i > 0; i -= NUM_COLS ) {
@@ -114,16 +105,12 @@ function Board(props) {
             if( newTasks[i].id == taskId ) {
                 shiftCol = newTasks[i].colNum;
                 shiftRow = newTasks[i].rowNum;
-                //need to update symbolGrid to be 0 as well as grid to be a blankBlock
                 symbolGrid[ ( (newTasks[i].rowNum ) * NUM_COLS ) + (newTasks[i].colNum-1) ] = 0;
                 grid[ ( (newTasks[i].rowNum ) * NUM_COLS ) + (newTasks[i].colNum-1) ] = <BlankBlock rowNum={i} colNum={newTasks[i].colNum} openModal={setOpenTaskCreateModal} setLastClicked={setlastClickedBlankBlockCol} />;
                 newTasks.splice( i, 1 );
                 deleteFromDb( '/tasks/' + taskId, props.userInfo.uid );
             }
         }
-        console.log("start");
-        console.log(shiftRow);
-        console.log(shiftCol);
         for( let task of newTasks ) {
             console.log("task coords: " + task.rowNum + ", " + task.colNum )
             console.log( task.colNum == shiftCol );
@@ -139,13 +126,9 @@ function Board(props) {
         setTasks( newTasks );
         
         updateTasks();
-        console.log("Symbol Grid: ")
-        console.log(symbolGrid)
     }
 
     updateTasks()
-    // make taskList a one dimensional array, the gridwrapper does everything for us
-    // after that implement the thing that lets us create a note at the ith position
     console.log(props.userInfo);
                 
     return  (   
