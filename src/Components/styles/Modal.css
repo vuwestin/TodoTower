@@ -7,7 +7,6 @@
 	overflow: auto;
 	background: #6bc49f;
 	
-	/* These three make the content centered. IDK how though */
 	justify-content: center;
 	align-items: center;
 	display: flex;
